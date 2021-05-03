@@ -13,6 +13,13 @@ body{
     font-size: 16px;
   }
 
+  .title-text{
+    font-family: Copperplate,Copperplate Gothic Light,fantasy; 
+    color: rgb(134, 31, 65);
+    font-size: 52px;
+    margin-top: 30px;
+  }
+
   .btn {
     background: white;
     border:rgb(134, 31, 65);
