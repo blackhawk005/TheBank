@@ -1,0 +1,42 @@
+body{
+    overflow-x: hidden;
+}
+
+.btn {
+    margin-top: 1rem;
+    padding-top: 6.4px;
+    padding-bottom: 6.4px;
+    padding-right: 35.2px;
+    padding-left: 35.2px;
+    margin-left: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+  }
+
+  .btn {
+    background: white;
+    border:rgb(134, 31, 65);
+    border-color: rgb(134, 31, 65);
+    color: rgb(134, 31, 65);
+    border-width: 1.6px;
+    border-style: solid;
+  }
+
+  .btn:hover{
+    background: rgb(134, 31, 65);
+    border:rgb(134, 31, 65);
+    border-color: rgb(134, 31, 65);
+    color: white;
+    border-width: 1.6px;
+    border-style: solid;
+  }
+
+
+
+.btn-outine-danger{
+    border: rgb(134, 31, 65);
+}
+
+.btn-outine-danger:hover{
+    fill: rgb(134, 31, 65);
+}

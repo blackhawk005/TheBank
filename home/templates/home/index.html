@@ -1,0 +1,41 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="title-section container">
+    <div class="row">
+        <div class="col-lg-6 watch-img">
+            <img class="img" src="{% static 'images/bank.svg' %}"> <!-- width="400" height="400">-->
+            <!-- <img src="{% static 'images/image1.jpeg' %}" width="364", height="300"> -->
+        </div>
+        <div class="col-lg-6">
+
+            <h1 class="title-text" >TheBank</h1><br>
+            <h2 class="subtitle-text"> This is a website that can be used to send money from one user to another and see all the transactions </h2>
+            <div class="row" style="padding-left: 5%;">
+                <form action="/customers">
+                    {% csrf_token %}
+                    <button type="submit" class="btn  btn-light" >View All Customers</button>
+                </form>
+                <form action="/transaction_history">
+                    {% csrf_token %}
+                    
+                    <button type="submit" class="btn  btn-outline-light" >Transaction History</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

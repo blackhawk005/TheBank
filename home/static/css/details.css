@@ -1,0 +1,127 @@
+body{
+    background-image: linear-gradient(to right,rgb(207, 79, 122), white)
+}
+
+.register-left{
+    height: auto;
+    align-self: center;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border-radius: 4%;
+    padding: 50px;
+    top: 0;
+    transition: top 0.5s ease;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    -moz-box-shadow:    7px 10px 11px 0px rgb(46, 46, 45);
+    -webkit-box-shadow: 7px 10px 11px 0px rgb(46, 45, 45);
+    box-shadow:         7px 10px 11px 0px rgb(46, 45, 45);
+  }
+
+  .register-left:hover{
+    top: -10px;
+  }
+
+  .register-left h2
+  {
+    font-size: 3vw;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #555;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-size: 20%; */
+
+  }
+
+  .register-left p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3vw;
+  }
+  
+  .register-left .reg-btn
+  { 
+    font-size: 100%;
+    float: center;
+    text-align: center;
+    border: none;
+    background: #000;
+    font-weight: 400;
+    color: #fff;
+    font-style: inherit;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .register-left .btn-primary:hover
+  {
+      background: rgb(252, 187, 46);
+      color: white;
+  }
+
+  .delete-btn{
+    background-color: #000;
+    color: #fff;
+  }
+  .report-btn{
+    background-color: rgb(172, 0, 0);
+    color: #fff;
+  }
+
+
+  .btn {
+    margin-top: 1rem;
+    padding-top: 6.4px;
+    padding-bottom: 6.4px;
+    padding-right: 35.2px;
+    padding-left: 35.2px;
+    margin-left: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+  }
+
+  .btn {
+    background: white;
+    border:rgb(134, 31, 65);
+    border-color: rgb(134, 31, 65);
+    color: rgb(134, 31, 65);
+    border-width: 1.6px;
+    border-style: solid;
+  }
+
+  .btn:hover{
+    background: rgb(134, 31, 65);
+    border:rgb(134, 31, 65);
+    border-color: rgb(134, 31, 65);
+    color: white;
+    border-width: 1.6px;
+    border-style: solid;
+  }
+
+
+
+.btn-outine-danger{
+    border: rgb(134, 31, 65);
+}
+
+.btn-outine-danger:hover{
+    fill: rgb(134, 31, 65);
+}
+
+.btn-outline-light{
+  border: #fff;
+  border-width: 1.6px;
+  border-style: solid;
+  border-color: black;
+  color: black;
+}
+
+.btn-outline-light:hover{
+  border: #fff;
+  background-color: white;
+  border-width: 1.6px;
+  border-style: solid;
+  border-color: black;
+  color: black;
+  text-decoration: underline;
+}

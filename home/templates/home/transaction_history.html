@@ -1,0 +1,43 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/transaction_history.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<br><br>
+<h2 style="color: rgb(134, 31, 65);">Transaction History {{ username }}</h2>
+<div class="table-wrapper">
+    <table class="fl-table" style="border-spacing: 20px;">
+        <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Reciever</th>
+                <th>Amount</th>
+                <th>Date of Transaction</th>
+                <th>Time of Transaction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.sender }}</td>
+                <td>{{ transaction.reciever }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock%}

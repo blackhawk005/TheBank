@@ -1,0 +1,117 @@
+/* Home Page */
+body
+{
+   /* background-color: black; */
+    overflow-x: none;
+    
+}
+
+
+  /* Title section */
+  .title-section {
+    padding-bottom: 112px;
+    padding-top: 32px;
+  }
+  
+  .title-text{
+    font-family: Copperplate,Copperplate Gothic Light,fantasy; 
+    color: rgb(134, 31, 65);
+    font-size: 32px;
+    margin-left: 32px;
+    padding-top: 80px;
+  }
+  .subtitle-text{
+    font-family: Copperplate,Copperplate Gothic Light,fantasy; 
+    color: rgb(180, 61, 100);
+    font-size: 26px;
+    margin-left: 32px;
+    /* padding-top: 80px; */
+  }
+
+
+  .btn {
+    margin-top: 1rem;
+    padding-top: 6.4px;
+    padding-bottom: 6.4px;
+    padding-right: 35.2px;
+    padding-left: 35.2px;
+    margin-left: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+  }
+
+  .btn-light{
+    background: rgb(134, 31, 65);
+    border:rgb(134, 31, 65);
+    border-width: 1.6px;
+    border-style: solid;
+    border-color: #263E53;
+    color: white;
+  }
+  
+  .btn-light:hover{
+    background: rgb(134, 31, 65);
+    border:rgb(134, 31, 65);
+    border-width: 1.6px;
+    border-style: solid;
+    border-color: #263E53;
+    color: white;
+    text-decoration: underline;
+  }
+
+  .btn-outline-light{
+    border: #fff;
+    border-width: 1.6px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+  }
+
+  .btn-outline-light:hover{
+    border: #fff;
+    border-width: 1.6px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    text-decoration: underline;
+  }
+  
+  #left {    
+    float: left;  
+    }  
+
+  .buttons {
+    padding-top: 16px;
+    padding-left: 16px;
+  }
+
+  ul#menu li {
+    display:inline;
+  }
+
+  .panel-footer.panel-custom {
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    display: block;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    overflow-x: hidden;
+    margin-bottom: 0%;
+   
+
+}
+
+.img{
+    width: 400px;
+    height: 400px;
+  }
+ 
+@media screen and (min-width:340px) and (max-width:670px){
+    .img
+    {
+      width: 370px;
+      height: 370px;
+    }
+      
+
+  }

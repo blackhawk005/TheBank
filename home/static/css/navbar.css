@@ -1,0 +1,38 @@
+
+  nav{
+    border-bottom: 1px solid rgb(58, 5, 23);
+    background: rgba(0, 0, 0, 0.4);
+    background-color: rgb(134, 31, 65);
+  }
+
+  .navbar-nav {
+    padding: 10px;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+  }
+
+  .navbar-brand {
+    color:#fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 58px;
+  }
+  /* .home-nav-collapse {
+    color: white;
+  } */
+
+  
+  .nav-item{
+      margin: 16px;
+      font-size: 16px;
+      
+  }
+  .nav-link{
+    color: #fff;
+  }
+  
+  .nav-link:hover {
+    color: #fff;
+    text-decoration: underline;
+  }

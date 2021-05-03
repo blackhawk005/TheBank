@@ -1,0 +1,57 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/send_money.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<br><br><br>
+<div class="">
+    <div class="col-md-6  register-left">
+    <div class="">
+      <h2 class="" style="font-size: 32px;"><b>Details</b></h2>
+
+    <form action="/transaction_done" name="form1" style="padding: 10%;" method="post" onsubmit="required()">
+      {% csrf_token %}
+        <label for="id_amount" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" >Amount:</label>
+            <input type="text" class="form-control" name="amount" id="id_amount" onkeyup="check()" ><br>
+        <label for="id_receiver" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" >Choose the person you want to send:    </label>
+        <select name="reciever" id="id_receiver">
+            {% for customer in customers %}
+            {% if customer.id == sender_id %}
+            {% else %}
+            <option value="{{ customer.id }}">{{ customer.name }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+            <br><br>
+            <input type="hidden" name="sender_id" value="{{ sender_id }}">
+            <p id="alert" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif; display:none; color:red" >Your Account doesnot have the required balance. Your Current balance is ₹{{ info }}</p>
+        <input type="submit" class="btn reg-btn btn-primary" id="reg_btn" value="Submit" >
+    </form>
+    <script>
+        function check(){
+            var amount = document.forms["form1"]["amount"].value;
+            if (amount > parseInt('{{ info }}')){
+                document.getElementById("reg_btn").disabled = true;
+                document.getElementById("alert").style.display = "block"
+            }
+            else{
+                document.getElementById("reg_btn").disabled = false;
+                document.getElementById("alert").style.display = "none"
+            }
+        }
+    </script>
+</div>
+</div>
+<br>
+</div>
+
+{% endblock%}
