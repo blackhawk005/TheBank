@@ -77,13 +77,23 @@ WSGI_APPLICATION = 'TheBank.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # mysql://b415db73e3a296:cd430771@us-cdbr-east-03.cleardb.com/heroku_e0279b82d4631b6?reconnect=true
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'heroku_e0279b82d4631b6',
+#         'USER': 'b415db73e3a296',
+#         'PASSWORD': 'cd430771',
+#         'HOST': 'us-cdbr-east-03.cleardb.com'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_e0279b82d4631b6',
-        'USER': 'b415db73e3a296',
-        'PASSWORD': 'cd430771',
-        'HOST': 'us-cdbr-east-03.cleardb.com'
+        'NAME': 'TheBank',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': ''
     }
 }
 

@@ -47,16 +47,13 @@ def transaction_done(request):
         sender_query = Customers.objects.raw("SELECT * FROM home_customers where id='"+sender_id+"'")
         reciever_name = reciever_query[0].name
         sender_name = sender_query[0].name
-        current_balance_sender = sender_query[0].current_balance
-        current_balance_reciever = reciever_query[0].current_balance
         today = date.today()
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
         print(today, current_time)
-        transaction_query = Transactions.objects.raw("insert into home_transactions (reciever, sender, date,time, amount) values ('a', 'b', '2021-03-03','10:00:00',1000);")
         with connection.cursor() as cursor:
-            cursor.execute("update home_customers set current_balance={} where id={}".format( int(int(current_balance_sender) - int(amount)), sender_id))
-            cursor.execute("update home_customers set current_balance={} where id={}".format( int(int(current_balance_reciever) + int(amount)), reciever_id))
+            cursor.execute("update home_customers set current_balance = current_balance - {} where id={}".format( int(amount), sender_id))
+            cursor.execute("update home_customers set current_balance = current_balance + {} where id={}".format(int(amount), reciever_id))
             cursor.execute("insert into home_transactions (reciever, sender, date,time, amount) values ('{}', '{}', '{}','{}',{});".format(reciever_name, sender_name, today, current_time, amount))
 
     return redirect('/transaction_history')
