@@ -18,6 +18,7 @@ Home
     <table class="fl-table" style="border-spacing: 20px;">
         <thead>
             <tr>
+                <th style="font-weight: bold; ">Sr. No</th>
                 <th>Sender</th>
                 <th>Reciever</th>
                 <th>Amount</th>
@@ -28,6 +29,7 @@ Home
         <tbody>
             {% for transaction in transactions %}
             <tr>
+                <td style="font-weight: bold; background-color:rgb(134, 31, 65); color: #ffffff;">{{ forloop.counter }}</td>
                 <td>{{ transaction.sender }}</td>
                 <td>{{ transaction.reciever }}</td>
                 <td>{{ transaction.amount }}</td>
@@ -37,7 +39,6 @@ Home
             {% endfor %}
         </tbody>
     </table>
-
 </div>
 
 {% endblock%}

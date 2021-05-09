@@ -3,6 +3,9 @@ from django.shortcuts import redirect, render
 from .models import Customers, Transactions
 from datetime import date, datetime
 from django.db import connection
+from django.template.defaulttags import register
+
+
 
 # Create your views here.
 
@@ -58,6 +61,10 @@ def transaction_done(request):
 
     return redirect('/transaction_history')
 
+@register.filter
+def get_range(value):
+    return range(value)
+
 def transaction_history(request):
     transactions = Transactions.objects.all()
     if (request.method == 'POST'):
@@ -66,4 +73,5 @@ def transaction_history(request):
         username = user_query[0].name
         transaction_single = Transactions.objects.raw("SELECT * FROM home_transactions WHERE reciever='"+username+"' OR sender='"+username+"'")
         return render(request, "home/transaction_history.html", {'transactions': transaction_single, 'username':"for "+username})
-    return render(request, "home/transaction_history.html", {'transactions': transactions, 'username':''})
+
+    return render(request, "home/transaction_history.html", {'transactions': transactions, 'username':'', 'get_range': get_range(len(transactions)), 'one': 1})
