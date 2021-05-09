@@ -13,19 +13,21 @@ Customers
 {% block content %}
 
 
-<div class="container">
+<div class="container" style="text-align: center;">
     <h2 class="title-text" style="color: rgb(134, 31, 65); text-align:center;">Customers</h2>
-    <div class="row">
+    <div class="row" style="justify-content: center;">
     {% for customer in customers %}
-    <div class="card" style="width: 19rem; margin-right: 3%; margin-left: 3%; margin-top: 5%; margin-bottom: 3%;">
+    <div class="card" style="width: 19rem; margin: 3%;">
         <img class="card-img-top" style="padding: 5%;" src="/static/images/{{ customer.gender }}.svg" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title" style="text-align: center;">Name: {{ customer.name }}</h5>
-            <form action="user" method="POST" style="text-align: center;">
-                {% csrf_token %}
-                    <input type="hidden" name="hidden_unique_id" value="{{ customer.id }}">
-                <input class="btn btn-outline-danger" type="submit" value="More Info">
-            </form>
+            <div style="text-align: center;">
+                <form action="user" method="POST">
+                    {% csrf_token %}
+                        <input type="hidden" name="hidden_unique_id" value="{{ customer.id }}">
+                    <input class="btn btn-outline-danger" type="submit" value="More Info">
+                </form>
+            </div>
             <!-- <div>
                 <form action="user" method="POST" >
                     {% csrf_token %}
