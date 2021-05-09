@@ -24,13 +24,13 @@ Details: {{ name }}
       <h4 ><b>Gender:</b> {{ gender }}</h4><br>
       <h4 ><b>Current Balance:</b>₹{{ current_balance }}</h4>
       <br>
-      <div style="margin-left:30%;">
-      <form style="margin-right:40%; display:inline-block; " action="/send_money" method="POST">
+      <div style="text-align:center">
+      <form  action="/send_money" method="POST">
         {% csrf_token %}
           <input type="hidden" name="hidden_unique_id" value="{{ id }}">
           <input class="btn btn-outline-danger" type="submit" value="Transfer Money">
       </form>
-      <form style="margin-right:40%; display:inline-block; " action="/transaction_history" method="POST">
+      <form  action="/transaction_history" method="POST">
         {% csrf_token %}
           <input type="hidden" name="hidden_unique_id" value="{{ id }}">
           <input class="btn  btn-outline-light" type="submit" value="Check History">
