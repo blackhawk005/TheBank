@@ -18,11 +18,29 @@ Transfer Money
     <div class="">
       <h2 class="" style="font-size: 32px;"><b>Details</b></h2>
 
-    <form action="/transaction_done" name="form1" style="padding: 10%;" method="post" onsubmit="required()">
-      {% csrf_token %}
+    <form action="/transaction_done" name="form1" style="padding-left: 10%; padding-right: 10%; padding-bottom: 10%; padding-top: 3%;" method="post" onsubmit="required()">
+        {% csrf_token %}
+        {% if identifier == 1 %}
+        <label for="id_amount" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" >Amount_:</label>
+        <input type="text" class="form-control" name="amount" id="id_amount" onkeyup="differentcheck()" ><br>
+        {% else %}
         <label for="id_amount" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" >Amount:</label>
-            <input type="text" class="form-control" name="amount" id="id_amount" onkeyup="check()" ><br>
-        <label for="id_receiver" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" >Choose the person you want to send:    </label>
+        <input type="text" class="form-control" name="amount" id="id_amount" onkeyup="check()" ><br>
+        {% endif %}
+
+        {% if identifier == 1 %}
+        <label for="id_sender" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" >Choose the person from whom you want to send:</label>
+        <select name="sender_id" id="id_sender">
+            {% for customer in customers %}
+            <option value="{{ customer.id }},{{ customer.current_balance}}" >{{ customer.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        {% else %}
+        <input type="hidden" name="sender_id" value="{{ sender_id }}">
+        {% endif %}
+
+        <label for="id_receiver" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" >Choose the person to whom you want to send:</label>
         <select name="reciever" id="id_receiver">
             {% for customer in customers %}
             {% if customer.id == sender_id %}
@@ -30,10 +48,13 @@ Transfer Money
             <option value="{{ customer.id }}">{{ customer.name }}</option>
             {% endif %}
             {% endfor %}
-          </select>
-            <br><br>
-            <input type="hidden" name="sender_id" value="{{ sender_id }}">
-            <p id="alert" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif; display:none; color:red" >Your Account doesnot have the required balance. Your Current balance is ₹{{ info }}</p>
+        </select>
+        <br><br>
+        {% if identifier == 1 %}
+        <p id="alert" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif; display:none; color:red" ></p>
+        {% else %}
+        <p id="alert" style="font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif; display:none; color:red" >Your Account doesnot have the required balance. Your Current balance is ₹{{ info }}</p>
+        {% endif %}
         <input type="submit" class="btn reg-btn btn-primary" id="reg_btn" value="Submit" >
     </form>
     <script>
@@ -42,6 +63,24 @@ Transfer Money
             if (amount > parseInt('{{ info }}')){
                 document.getElementById("reg_btn").disabled = true;
                 document.getElementById("alert").style.display = "block"
+            }
+            else{
+                document.getElementById("reg_btn").disabled = false;
+                document.getElementById("alert").style.display = "none"
+            }
+        }
+
+        function differentcheck(){
+            var amount = document.forms["form1"]["amount"].value;
+            var doc = document.getElementById("id_sender").value
+            x = doc.split(",")
+
+            console.log(x[1])
+            if (amount > parseInt(x[1])){
+                document.getElementById("reg_btn").disabled = true;
+                document.getElementById("alert").innerHTML = 'Your Account doesnot have the required balance. Your Current balance is ₹' + x[1]
+                document.getElementById("alert").style.display = "block"
+
             }
             else{
                 document.getElementById("reg_btn").disabled = false;

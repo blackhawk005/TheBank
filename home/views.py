@@ -38,14 +38,15 @@ def send_money(request):
         unique_id = request.POST['hidden_unique_id']
         user_info = Customers.objects.raw("SELECT * FROM home_customers where id='"+unique_id+"'")
         info = user_info[0].current_balance
-
-    return render(request, "home/send_money.html", {'customers': customers, 'info': info, 'sender_id': int(unique_id)})
-
+        return render(request, "home/send_money.html", {'customers': customers, 'info': info, 'sender_id': int(unique_id), 'identifier': 0})
+    return render(request, "home/send_money.html", {'customers': customers, 'sender_id': None, 'identifier': 1})
 def transaction_done(request):
     if (request.method=='POST'):
         amount = request.POST['amount']
         reciever_id = request.POST['reciever']
-        sender_id = request.POST['sender_id']
+        sender_id_raw = request.POST['sender_id']
+        sender_id_list = sender_id_raw.split(',')
+        sender_id = sender_id_list[0]
         reciever_query = Customers.objects.raw("SELECT * FROM home_customers where id='"+reciever_id+"'")
         sender_query = Customers.objects.raw("SELECT * FROM home_customers where id='"+sender_id+"'")
         reciever_name = reciever_query[0].name

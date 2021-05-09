@@ -29,9 +29,12 @@ TheBank
                     {% csrf_token %}
                     <button type="submit" class="btn  btn-light" >View All Customers</button>
                 </form>
+                <form action="/send_money">
+                    {% csrf_token %}
+                    <button type="submit" class="btn  btn-light" >Transfer Money</button>
+                </form>
                 <form action="/transaction_history">
                     {% csrf_token %}
-                    
                     <button type="submit" class="btn  btn-outline-light" >Transaction History</button>
                 </form>
             </div>
