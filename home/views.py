@@ -65,12 +65,12 @@ def transaction_done(request):
 
 
 def transaction_history(request):
-    transactions = Transactions.objects.all()
+    transactions = reversed(Transactions.objects.all())
     if (request.method == 'POST'):
         unique_id = request.POST['hidden_unique_id']
         user_query = Customers.objects.raw("SELECT * FROM home_customers where id='"+unique_id+"'")
         username = user_query[0].name
-        transaction_single = Transactions.objects.raw("SELECT * FROM home_transactions WHERE reciever='"+username+"' OR sender='"+username+"'")
+        transaction_single = Transactions.objects.raw("SELECT * FROM home_transactions WHERE reciever='"+username+"' OR sender='"+username+"' order by date desc")
         return render(request, "home/transaction_history.html", {'transactions': transaction_single, 'username':"for "+username})
 
     return render(request, "home/transaction_history.html", {'transactions': transactions, 'username':''})
